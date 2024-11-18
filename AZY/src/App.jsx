@@ -9,6 +9,6 @@ const App = () => {
       <Home /> {/* Render the Home component here */}
     </div>
   );
-};
+}; 
 
 export default App;
