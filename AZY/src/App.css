@@ -1,0 +1,90 @@
+/* General App Styling */
+.home { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #111;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Main Circle Outline (the inner circle) */
+.circle-outline {
+  position: absolute;
+  width: 400px;  /* Make this slightly smaller than the wrapper to fit inside */
+  height: 400px;
+  border: 3px solid #444;  /* Border thickness */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+    /* animation: moveCircles 15s linear infinite; Moves the outer circles along a circular path */
+
+}
+
+/* Center Logo (Logo stays fixed) */
+.center-logo {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; /* Ensures the logo stays on top */
+}
+
+.center-logo img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  transform: none; /* Ensure logo doesn't rotate */
+}
+
+/* Outer Circles Container (the circle path that moves) */
+.circle-container {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+   /* animation: moveCircles 15s linear infinite;  */
+}
+
+/* Keyframes to animate the movement of outer circles along a circular path */
+@keyframes moveCircles {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg); /* Start position */
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg); /* End position */
+  }
+}
+
+/* Outer Circle Style */
+.outer-circle {
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  background: #444;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: rotate(0deg); /* Keeps the text inside upright */  
+}
+
+.outer-circle:hover {
+  background: #666;
+  transform: scale(1.2);
+}
+
+/* Avoid rotating the text */
+.outer-circle .content {
+  transform: rotate(0deg); /* Keeps the text upright */
+}
